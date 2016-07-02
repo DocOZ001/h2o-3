@@ -46,6 +46,9 @@ public class ModelMetricsBaseV3<I extends ModelMetrics, S extends ModelMetricsBa
   @API(help = "The Mean Squared Error of the prediction for this scoring run.", direction = API.Direction.OUTPUT)
   public double MSE;
 
+  @API(help = "The Root Mean Squared Error of the prediction for this scoring run.", direction = API.Direction.OUTPUT)
+  public double RMSE;
+
   @API(help="Number of observations.")
   public long nobs;
 
