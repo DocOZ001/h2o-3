@@ -473,31 +473,6 @@ class ModelBase(object):
     for k,v in zip(list(tm.keys()),list(tm.values())): m[k] = None if v is None else v.mse()
     return list(m.values())[0] if len(m) == 1 else m
 
-    def mse(self, train=False, valid=False, xval=False):
-      """
-      Get the MSE(s).
-      If all are False (default), then return the training metric value.
-      If more than one options is set to True, then return a dictionary of metrics where the keys are "train", "valid",
-      and "xval"
-
-      Parameters
-      ----------
-      train : bool, default=True
-        If train is True, then return the MSE value for the training data.
-      valid : bool, default=True
-        If valid is True, then return the MSE value for the validation data.
-      xval : bool, default=True
-        If xval is True, then return the MSE value for the cross validation data.
-
-      Returns
-      -------
-        The MSE for this regression model.
-      """
-    tm = ModelBase._get_metrics(self, train, valid, xval)
-    m = {}
-    for k,v in zip(list(tm.keys()),list(tm.values())): m[k] = None if v is None else v.mse()
-    return list(m.values())[0] if len(m) == 1 else m
-
   def rmse(self, train=False, valid=False, xval=False):
     """
     Get the RMSE(s).
